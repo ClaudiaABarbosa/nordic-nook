@@ -1,38 +1,16 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "tailwindcss";
-
-const linkStyle = ({ isActive }) => ({
-  marginRight: 16,
-  textDecoration: "none",
-  fontWeight: isActive ? "700" : "400",
-});
+import Navbar from "./Navbar";
 
 export default function Layout() {
   return (
-    <main style={{ maxWidth: 960, margin: "0 auto", padding: 24 }}>
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <h1>Nordic Nook</h1>
-        <nav>
-          <NavLink to="/" style={linkStyle} end>
-            Home
-          </NavLink>
-          <NavLink to="/about" style={linkStyle} end>
-            About
-          </NavLink>
-        </nav>
-      </header>
-
-      <div style={{ marginTop: 24 }}>
+    <main className="max-w-4xl mx-auto px-4">
+      <Navbar />
+      <div className="mt-6">
         <Outlet />
       </div>
 
-      <footer style={{ marginTop: 48, fontSize: 12, opacity: 0.7 }}>
+      <footer className="mt-12 text-center text-xs text-gray-500">
         © {new Date().getFullYear()} Nordic Nook
       </footer>
     </main>
